@@ -6,14 +6,7 @@ import Header from "./components/Header";
 export default function Home() {
   return (
     <div className="bg-black">
-      <div className="flex flex-col w-full h-dvh bg-[#151515] items-center text-center gap-10 justify-center">
-        <div className="flex w-28 h-28 border rounded-full items-center justify-center bg-green-400 border-none xl:w-48 xl:h-48">
-          <img
-            src="haltere.png"
-            alt="Dunbell design"
-            className="w-16 h-16 rotate-45 xl:w-20 xl:h-20"
-          />
-        </div>
+      <div className="flex flex-col w-full h-dvh bg-[#151515] items-center text-center gap-10 justify-center lg:gap-5">
         <Header />
         <div className="flex my-16">
           <div className="flex flex-col w-20 items-center">

@@ -1,12 +1,13 @@
-'use client'
+"use client";
 /* eslint-disable @next/next/no-img-element */
 
 import { useRouter } from "next/navigation";
 import Button from "./components/Button";
 import Header from "./components/Header";
+import Card from "./components/Card";
 
 export default function Home() {
-  const router = useRouter()
+  const router = useRouter();
   return (
     <div className="w-full bg-neutral-950">
       <div className="w-full h-dvh flex flex-col bg-[#151515] items-center text-center gap-8 justify-center lg:gap-5">
@@ -19,29 +20,29 @@ export default function Home() {
             <img
               src="chama.png"
               alt="Fire design"
-              className="w-6 h-6 mb-1 xl:w-8 xl:h-8"
+              className="w-5 h-5 mb-1 xl:w-6 xl:h-6"
             />
-            <p className="text-sm text-gray-300 xl:text-lg">Sequências</p>
+            <p className="text-sm text-gray-300 ">Sequências</p>
           </div>
-          <div className="flex flex-col w-30 items-center border-gray-500 border-l border-r mx-6 xl:mx-20 xl:w-50">
+          <div className="flex flex-col w-30 items-center border-gray-500 border-l border-r mx-6 xl:mx-20 xl:w-35">
             <img
               src="raio.png"
               alt="Lightning design"
-              className="w-6 h-6 mb-1 xl:w-8 xl:h-8 border-none bg-gree"
+              className="w-5 h-5 mb-1 xl:w-6 xl:h-6 border-none bg-gree"
             />
-            <p className="text-sm text-gray-300 xl:text-lg">Pontos</p>
+            <p className="text-sm text-gray-300">Pontos</p>
           </div>
           <div className="flex flex-col w-20 items-center">
             <img
               src="trofeu.png"
               alt="Trophy design"
-              className="w-6 h-6 mb-1 xl:w-8 xl:h-8"
+              className="w-5 h-5 mb-1 xl:w-6 xl:h-6"
             />
-            <p className="text-sm text-gray-300 xl:text-lg">Conquistas</p>
+            <p className="text-sm text-gray-300">Conquistas</p>
           </div>
         </div>
         <div>
-          <Button text="Começar agora" onClick={() => router.push("/user/")}/>
+          <Button text="Começar agora" onClick={() => router.push("/user/")} />
         </div>
       </div>
 
@@ -55,69 +56,30 @@ export default function Home() {
           </p>
         </div>
         <div className="grid grid-cols-1 pb-3 mb-5 md:grid-cols-2 md:mx-32 xl:grid-cols-4 xl:flex xl:justify-center xl:gap-3">
-          <div className="border border-gray-500 rounded-lg bg-neutral-900 h-48 mx-5 my-2 p-5 transition hover:scale-105 hover:shadow-xl hover:border-green-500 md:mx-3 md:my-3 xl:w-96 xl:h-56">
-            <div className="flex w-12 h-12 bg-green-500 items-center justify-center rounded-lg">
-              <img
-                src="calendar.png"
-                alt="Calendar design"
-                className="w-8 h-8"
-              />
-            </div>
-            <h3 className="text-lg mt-4 mb-1 2xl:text-xl 2xl:py-1 text-white">
-              Planejamento Semanal
-            </h3>
-            <p className="text-gray-400 xl:text-md">
-              Organize seus treinos para cada dia da semana de forma clara e
-              intuitiva.
-            </p>
-          </div>
-          <div className="border border-gray-500 rounded-lg bg-neutral-900 h-48 mx-5 my-2 p-5 transition hover:scale-105 hover:shadow-xl hover:border-green-500 md:mx-3 md:my-3 xl:w-96 xl:h-56">
-            <div className="flex w-12 h-12 bg-green-500 items-center justify-center rounded-lg">
-              <img
-                src="atuacao.png"
-                alt="Calendar design"
-                className="w-8 h-8"
-              />
-            </div>
-            <h3 className="text-lg mt-4 mb-1 2xl:text-xl 2xl:py-1 text-white">
-              Treino Progressivo
-            </h3>
-            <p className="text-gray-400 xl:text-md">
-              Programas adaptados ao seu nível: Iniciante, intermediário ou
-              avançado.
-            </p>
-          </div>
-          <div className="border border-gray-500 rounded-lg bg-neutral-900 h-48 mx-5 my-2 p-5 transition hover:scale-105 hover:shadow-xl hover:border-green-500 md:mx-3 md:my-3 xl:w-96 xl:h-56">
-            <div className="flex w-12 h-12 bg-green-500 items-center justify-center rounded-lg">
-              <img
-                src="trofeu-icon.png"
-                alt="Calendar design"
-                className="w-8 h-8"
-              />
-            </div>
-            <h3 className="text-lg mt-4 mb-1 2xl:text-xl 2xl:py-1 text-white">
-              Gamificação
-            </h3>
-            <p className="text-gray-400 xl:text-md">
-              Conquiste pontos, mantenha sequências e desbloqueie conquistas.
-            </p>
-          </div>
-          <div className="border border-gray-500 rounded-lg bg-neutral-900 h-48 mx-5 my-2 p-5 transition hover:scale-105 hover:shadow-xl hover:border-green-500 md:mx-3 md:my-3 xl:w-96 xl:h-56">
-            <div className="flex w-12 h-12 bg-green-500 items-center justify-center rounded-lg">
-              <img
-                src="batimento.png"
-                alt="Calendar design"
-                className="w-8 h-8"
-              />
-            </div>
-            <h3 className="text-lg mt-4 mb-1 2xl:text-xl 2xl:py-1 text-white">
-              Musculação & Corrida
-            </h3>
-            <p className="text-gray-400 xl:text-md">
-              Escolha entre treinos de musculação estruturados ou registo de
-              corridas.
-            </p>
-          </div>
+          <Card
+            title="Planejamento Semanal"
+            icon="calendar.png"
+            extra="Organize seus treinos para cada dia da semana de forma clara e
+              intuitiva."
+          />
+
+          <Card
+            title="Treino Progressivo"
+            icon="atuacao.png"
+            extra="Programas adaptados ao seu nível: Iniciante, intermediário ou avançado."
+          />
+
+          <Card
+            title="Gamificação"
+            icon="trofeu-icon.png"
+            extra="Conquiste pontos, mantenha sequências e desbloqueie conquistas."
+          />
+
+          <Card
+            title="Musculação & Corrida"
+            icon="batimento.png"
+            extra="Escolha entre treinos de musculação estruturados ou registo de corridas."
+          />
         </div>
       </div>
 
@@ -131,33 +93,19 @@ export default function Home() {
           </p>
         </div>
         <div className="grid grid-cols-1 pb-3 mb-5 md:grid-cols-3 md:mx-10 xl:flex xl:justify-center xl:gap-5">
-          <div className="border border-gray-500 rounded-lg bg-neutral-900 h-48 mx-5 my-2 p-5 transition hover:scale-105 hover:shadow-xl hover:border-green-500 md:mx-2 md:my-3 xl:w-80 xl:h-56 xl:pt-8">
-            <div className="flex w-12 h-12 bg-gray-800 items-center justify-center rounded-full mx-auto ">
-              <p className="text-green-400 text-2xl">1</p>
-            </div>
-            <h3 className="text-xl mt-4 mb-1 xl:text-2xl xl:py-2 text-white">
-              Iniciante
-            </h3>
-            <p className="text-gray-400">Full Body → ABC → ABCD</p>
-          </div>
-          <div className="border border-gray-500 rounded-lg bg-neutral-900 h-48 mx-5 my-2 p-5 transition hover:scale-105 hover:shadow-xl hover:border-green-500 md:mx-2 md:my-3 xl:w-80 xl:h-56 xl:pt-8">
-            <div className="flex w-12 h-12 bg-gray-800 items-center justify-center rounded-full mx-auto">
-              <p className="text-green-400 text-2xl">2</p>
-            </div>
-            <h3 className="text-xl mt-4 mb-1 xl:text-2xl xl:py-2 text-white">
-              Intermediário
-            </h3>
-            <p className="text-gray-400">ABC → ABCD → Upper / Lower</p>
-          </div>
-          <div className="border border-gray-500 rounded-lg bg-neutral-900 h-48 mx-5 my-2 p-5 transition hover:scale-105 hover:shadow-xl hover:border-green-500 md:mx-2 md:my-3 xl:w-80 xl:h-56 xl:pt-8">
-            <div className="flex w-12 h-12 bg-gray-800 items-center justify-center rounded-full mx-auto">
-              <p className="text-green-400 text-2xl">3</p>
-            </div>
-            <h3 className="text-xl mt-4 mb-1 xl:text-2xl xl:py-2 text-white">
-              Avançado
-            </h3>
-            <p className="text-gray-400">Push / Pull / Legs • Personalizado</p>
-          </div>
+          <Card title="Iniciante"
+          number={1}
+          extra="Full Body → ABC → ABCD" icon={""}          />
+
+          <Card
+            title="Intermediário"
+            number={2}
+            extra="ABC → ABCD → Upper / Lower" icon={""}          />
+          
+          <Card
+            title="Avançado"
+            number={3}
+            extra="Push / Pull / Legs • Personalizado" icon={""}          />
         </div>
       </div>
 
@@ -172,7 +120,10 @@ export default function Home() {
           </p>
         </div>
         <div className="flex justify-center my-16 xl:pb-20">
-          <Button text="Criar Meu Perfil" onClick={() => router.push("/user/")}/>
+          <Button
+            text="Criar Meu Perfil"
+            onClick={() => router.push("/user/")}
+          />
         </div>
 
         <footer className="w-full h-32 flex flex-col mx-auto items-center border-t border-t-gray-700 py-8 px-5 md:flex-row md:justify-between">
@@ -182,7 +133,7 @@ export default function Home() {
               alt="Dubble design"
               className="w-5 h-5 rotate-45 mr-1 xl:w-8 xl:h-8 xl:mr-3"
             />
-            <h4 className="uppercase text-lg  md:my-auto xl:text-2xl">
+            <h4 className="uppercase text-lg text-white md:my-auto xl:text-2xl">
               Fitweek
             </h4>
           </div>

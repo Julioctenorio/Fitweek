@@ -12,7 +12,7 @@ export default function Header() {
         />
       </div>
       <div>
-        <h1 className="uppercase text-4xl my-4 xl:text-6xl text-white">
+        <h1 className="uppercase text-4xl my-2 xl:text-6xl text-white">
           Fitweek
         </h1>
       </div>

@@ -4,6 +4,7 @@ import Header from "../components/Header";
 import Button from "../components/Button";
 import InputText from "../components/InputText";
 import { useState } from "react";
+import Card from "../components/Card";
 
 export default function PageUser() {
   const [step, setStep] = useState(1);
@@ -52,7 +53,7 @@ export default function PageUser() {
               stroke-width="2"
               stroke-linecap="round"
               stroke-linejoin="round"
-              className="lucide lucide-arrow-left-icon lucide-arrow-left mr-2"
+              className="lucide lucide-arrow-left-icon lucide-arrow-left mr-2 hover:text-green-200"
               onClick={() => setStep(step - 1)}
             >
               <path d="m12 19-7-7 7-7" />
@@ -60,7 +61,7 @@ export default function PageUser() {
             </svg>
             <h1 className="uppercase text-2xl">Sua medidas</h1>
           </div>
-          <p className="mx-auto mb-16 text-gray-400">Calcular IMC</p>
+          <p className="mx-auto mb-8 text-gray-400">Calcular IMC</p>
           <InputText
             text={"Peso (kg)"}
             value={weight}
@@ -103,7 +104,7 @@ export default function PageUser() {
               stroke-width="2"
               stroke-linecap="round"
               stroke-linejoin="round"
-              className="lucide lucide-arrow-left-icon lucide-arrow-left mr-2"
+              className="lucide lucide-arrow-left-icon lucide-arrow-left mr-2 hover:text-green-200"
               onClick={() => setStep(step - 1)}
             >
               <path d="m12 19-7-7 7-7" />
@@ -111,46 +112,33 @@ export default function PageUser() {
             </svg>
             <h1 className="uppercase text-2xl">Seu nível</h1>
           </div>
-          <p className="mx-auto mb-16 text-gray-400">
+          <p className="mx-auto mb-8 text-gray-400">
             Qual experiência com treinos
           </p>
-          <div className="flex w-80 h-25 px-4 border rounded-2xl items-center transition hover:scale-105 hover:shadow-xl hover:border-green-500">
-            <div className="w-15 h-15 border mr-2 bg-[#414141] border-none rounded-xl">
-              img
-            </div>
-            <div className="flex-col text-left">
-              <h2 className="text-md">Iniciante</h2>
-              <p className="text-sm text-gray-400">Menos de 6 meses</p>
-              <p className="text-xs pt-0.5 text-green-400">Treino Full Body</p>
-            </div>
-          </div>
+          <Card
+            variant="small"
+            title="Iniciante"
+            subtitle="Menos de 6 meses"
+            extra="Treino Full Body"
+            icon="atuacao.png"
+          />
+          <Card
+            variant="small"
+            title="Intermediário"
+            subtitle="6 meses a 2 anos de treino"
+            extra="Treino ABC / ABCD"
+            icon="atuacao.png"
+          />
+          <Card
+            variant="small"
+            title="Avançado"
+            subtitle="Mais de 2 anos de treino"
+            extra="Personalizado"
+            icon="atuacao.png"
+          />
 
-          <div className="flex w-80 h-25 px-4 border rounded-2xl items-center transition hover:scale-105 hover:shadow-xl hover:border-green-500">
-            <div className="w-15 h-15 border mr-2 bg-[#414141] border-none rounded-xl">
-              img
-            </div>
-            <div className="flex-col text-left">
-              <h2 className="text-md">Intermediário</h2>
-              <p className="text-sm text-gray-400">6 meses a 2 anos de treino</p>
-              <p className="text-xs pt-0.5 text-green-400">Treino ABC / ABCD</p>
-            </div>
-          </div>
-
-          <div className="flex w-80 h-25 px-4 border rounded-2xl items-center transition hover:scale-105 hover:shadow-xl hover:border-green-500">
-            <div className="w-15 h-15 border mr-2 bg-[#414141] border-none rounded-xl">
-              img
-            </div>  
-            <div className="flex-col text-left">
-              <h2 className="text-md">Avançado</h2>
-              <p className="text-sm text-gray-400">Mais de 2 anos de treino</p>
-              <p className="text-xs pt-0.5 text-green-400">Personalizado</p>
-            </div>
-          </div>
           <div className="">
-            <Button
-              text={"Continuar"}
-              onClick={handleNext}
-            />
+            <Button text={"Continuar"} onClick={handleNext} />
           </div>
         </div>
       ) : null}

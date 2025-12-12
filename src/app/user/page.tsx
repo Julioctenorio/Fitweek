@@ -1,20 +1,25 @@
 "use client";
 
-import Header from "../components/Header";
+import Principal from "../components/Principal";
 import Button from "../components/Button";
 import InputText from "../components/InputText";
-import { useState } from "react";
 import Card from "../components/Card";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function PageUser() {
+  const router = useRouter();
   const [step, setStep] = useState(1);
-  const [name, setName] = useState("");
+  const [username, setUsername] = useState("");
   const [weight, setWeight] = useState("");
   const [height, setHeight] = useState("");
   const [imc, setIMC] = useState(0);
+  const [selectedId, setSelectedId] = useState<number | null>(null);
+  const [selectedTraining, setSelectedTraining] = useState<number | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
   const handleNext = () => {
-    if (step < 5) {
+    if (step < 4) {
       setStep(step + 1);
     }
   };
@@ -27,90 +32,157 @@ export default function PageUser() {
     <div className="w-full bg-neutral-950 flex text-center">
       {step === 1 ? (
         <div className="w-full h-dvh flex flex-col bg-[#151515] mx-auto items-center text-center justify-center gap-5 lg:gap-5">
-          <Header />
+          <Principal />
           <p className="mx-auto mb-6 text-gray-400">Vamos começar</p>
-          <InputText
-            text={"Nome"}
-            value={name}
-            onChance={(e) => {
-              setName(e.target.value);
+          <form
+            className="flex flex-col items-center"
+            onSubmit={(e) => {
+              e.preventDefault();
+              const form = e.currentTarget as HTMLFormElement;
+              if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+              }
+              handleNext();
             }}
-          />
-          <div className="">
-            <Button text={"Começar"} onClick={handleNext} />
-          </div>
+          >
+            <InputText
+              id="username"
+              type="text"
+              text={"Nome"}
+              value={username}
+              onChange={(e) => {
+                const value = e.target.value;
+                setUsername(value);
+                localStorage.setItem("username", value);
+              }}
+              required
+            />
+            <div className="mt-4">
+              <Button text={"Começar"} width="w-80" type="submit" />
+            </div>
+          </form>
         </div>
       ) : step === 2 ? (
         <div className="w-full h-dvh flex flex-col bg-[#151515] mx-auto items-center text-center justify-center gap-5 lg:gap-5">
-          <div className="flex">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              className="lucide lucide-arrow-left-icon lucide-arrow-left mr-2 hover:text-green-200"
-              onClick={() => setStep(step - 1)}
-            >
-              <path d="m12 19-7-7 7-7" />
-              <path d="M19 12H5" />
-            </svg>
-            <h1 className="uppercase text-2xl">Sua medidas</h1>
+          <div className="flex justify-around">
+            <div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="lucide lucide-arrow-left-icon lucide-arrow-left mr-2 hover:text-green-200"
+                onClick={() => setStep(step - 1)}
+              >
+                <path d="m12 19-7-7 7-7" />
+                <path d="M19 12H5" />
+              </svg>
+            </div>
+            <div>
+              <h1 className="uppercase text-2xl ml-12 mr-18">Sua medidas</h1>
+            </div>
+            <div content="w-1 mx-20"></div>
           </div>
           <p className="mx-auto mb-8 text-gray-400">Calcular IMC</p>
-          <InputText
-            text={"Peso (kg)"}
-            value={weight}
-            onChance={(e) => {
-              setWeight(e.target.value);
-            }}
-          />
-          <InputText
-            text={"Altura (cm)"}
-            value={height}
-            onChance={(e) => {
-              setHeight(e.target.value);
-            }}
-          />
 
-          <div className={imc === 0 ? "hidden" : "flex"}>
-            <div>Seu IMC</div>
-            <div>
-              <div>{imc}</div>
-              <div>{imcClassification(imc)}</div>
-            </div>
-          </div>
-          <div className="">
-            <Button
-              text={imc === 0 ? "Calcular" : "Próximo"}
-              onClick={imc === 0 ? calcularIMC : handleNext}
+          <form
+            className="flex flex-col items-center"
+            onSubmit={(e) => {
+              e.preventDefault();
+              const form = e.currentTarget as HTMLFormElement;
+              if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+              }
+
+              if (imc === 0) {
+                calcularIMC();
+              } else {
+                handleNext();
+              }
+            }}
+          >
+            <InputText
+              id="weight"
+              type="number"
+              text={"Peso (kg)"}
+              value={weight}
+              onChange={(e) => {
+                const value = e.target.value;
+                setWeight(value);
+                localStorage.setItem("weight", value);
+                console.log(value);
+              }}
+              required
             />
-          </div>
+
+            <InputText
+              id="height"
+              type="number"
+              text={"Altura (cm)"}
+              value={height}
+              onChange={(e) => {
+                const value = e.target.value;
+                setHeight(value);
+                localStorage.setItem("height", value);
+              }}
+              required
+            />
+
+            <div
+              className={
+                imc === 0
+                  ? "hidden"
+                  : "flex w-80 h-18 py-2 px-3 rounded-lg border border-gray-500 bg-transparent items-center justify-between"
+              }
+            >
+              <div className="text-gray-300">Seu IMC</div>
+              <div>
+                <div className="text-3xl">{imc}</div>
+                <div className="text-xs">{imcClassification(imc)}</div>
+              </div>
+            </div>
+
+            <div className="mt-4">
+              <Button
+                text={imc === 0 ? "Calcular" : "Continuar"}
+                width="w-80"
+                type="submit"
+              />
+            </div>
+          </form>
         </div>
       ) : step === 3 ? (
         <div className="w-full h-dvh flex flex-col bg-[#151515] mx-auto items-center text-center justify-center gap-3">
-          <div className="flex">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              className="lucide lucide-arrow-left-icon lucide-arrow-left mr-2 hover:text-green-200"
-              onClick={() => setStep(step - 1)}
-            >
-              <path d="m12 19-7-7 7-7" />
-              <path d="M19 12H5" />
-            </svg>
-            <h1 className="uppercase text-2xl">Seu nível</h1>
+          <div className="flex justify-around">
+            <div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="lucide lucide-arrow-left-icon lucide-arrow-left mr-2 hover:text-green-200"
+                onClick={() => setStep(step - 1)}
+              >
+                <path d="m12 19-7-7 7-7" />
+                <path d="M19 12H5" />
+              </svg>
+            </div>
+            <div>
+              <h1 className="uppercase text-2xl ml-12 mr-26">Seu nível</h1>
+            </div>
+            <div content="w-1 mx-20"></div>
           </div>
           <p className="mx-auto mb-8 text-gray-400">
             Qual experiência com treinos
@@ -121,6 +193,11 @@ export default function PageUser() {
             subtitle="Menos de 6 meses"
             extra="Treino Full Body"
             icon="atuacao.png"
+            selected={selectedId === 1}
+            onSelect={() => {
+              setSelectedId(1);
+              setError(null);
+            }}
           />
           <Card
             variant="small"
@@ -128,6 +205,11 @@ export default function PageUser() {
             subtitle="6 meses a 2 anos de treino"
             extra="Treino ABC / ABCD"
             icon="atuacao.png"
+            selected={selectedId === 2}
+            onSelect={() => {
+              setSelectedId(2);
+              setError(null);
+            }}
           />
           <Card
             variant="small"
@@ -135,10 +217,102 @@ export default function PageUser() {
             subtitle="Mais de 2 anos de treino"
             extra="Personalizado"
             icon="atuacao.png"
+            selected={selectedId === 3}
+            onSelect={() => {
+              setSelectedId(3);
+              setError(null);
+            }}
           />
 
+          {error && <p className="text-red-400 mt-4">{error}</p>}
+
           <div className="">
-            <Button text={"Continuar"} onClick={handleNext} />
+            <Button
+              text={"Continuar"}
+              width="w-80"
+              onClick={() => {
+                if (selectedId == null) {
+                  setError("Escolha um nível antes de continuar");
+                  return;
+                }
+                setError(null);
+                handleNext();
+              }}
+            />
+          </div>
+        </div>
+      ) : step === 4 ? (
+        <div className="w-full h-dvh flex flex-col bg-[#151515] mx-auto items-center text-center justify-center gap-3">
+          <div className="flex justify-around">
+            <div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="lucide lucide-arrow-left-icon lucide-arrow-left mr-2 hover:text-green-200"
+                onClick={() => setStep(step - 1)}
+              >
+                <path d="m12 19-7-7 7-7" />
+                <path d="M19 12H5" />
+              </svg>
+            </div>
+            <div>
+              <h1 className="uppercase text-2xl ml-10 mr-14">Tipo de Treino</h1>
+            </div>
+            <div content="w-1 mx-20"></div>
+          </div>
+          <p className="mx-auto mb-8 text-gray-400">
+            O que você quer participar
+          </p>
+          <div className="flex flex-col gap-3">
+            <Card
+              variant="small"
+              title="Musculação"
+              subtitle="Treino de força e hipertrofia no ginásio"
+              icon="atuacao.png"
+              selected={selectedTraining === 1}
+              onSelect={() => {
+                setSelectedTraining(1);
+                setError(null);
+                localStorage.setItem("selectedTraining", "1")
+              }}
+              />
+            <Card
+              variant="small"
+              title="Corrida"
+              subtitle="Treino de corrida e cardio"
+              icon="atuacao.png"
+              selected={selectedTraining === 2}
+              onSelect={() => {
+                setSelectedTraining(2);
+                setError(null);
+                localStorage.setItem("selectedTraining", "2")
+              }}
+            />
+
+            {error && <p className="text-red-400 mt-4">{error}</p>}
+
+            <div className="">
+              <Button
+                text={"Continuar"}
+                width="w-80"
+                onClick={() => {
+                  if (selectedId == null) {
+                    setError("Escolha um nível antes de continuar");
+                    return;
+                  }
+                  setError(null);
+                  // handleNext();
+                  router.push("/app");
+                }}
+              />
+            </div>
           </div>
         </div>
       ) : null}

@@ -3,7 +3,7 @@
 
 import { useRouter } from "next/navigation";
 import Button from "./components/Button";
-import Header from "./components/Header";
+import Principal from "./components/Principal";
 import Card from "./components/Card";
 
 export default function Home() {
@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <div className="w-full bg-neutral-950">
       <div className="w-full h-dvh flex flex-col bg-[#151515] items-center text-center gap-8 justify-center lg:gap-5">
-        <Header />
+        <Principal />
         <p className="mx-16 text-gray-400">
           Organize seus treinos semanais de forma simpels e eficaz
         </p>
@@ -55,7 +55,7 @@ export default function Home() {
             Ferramenta poderosa para transformar sua rotina de treinos
           </p>
         </div>
-        <div className="grid grid-cols-1 pb-3 mb-5 md:grid-cols-2 md:mx-32 xl:grid-cols-4 xl:flex xl:justify-center xl:gap-3">
+        <div className="grid grid-cols-1 pb-3 mb-5 md:grid-cols-2 md:mx-30 xl:grid-cols-4 xl:flex xl:justify-center xl:gap-3">
           <Card
             title="Planejamento Semanal"
             icon="calendar.png"
@@ -93,19 +93,19 @@ export default function Home() {
           </p>
         </div>
         <div className="grid grid-cols-1 pb-3 mb-5 md:grid-cols-3 md:mx-10 xl:flex xl:justify-center xl:gap-5">
-          <Card title="Iniciante"
-          number={1}
-          extra="Full Body → ABC → ABCD" icon={""}          />
+          <Card title="Iniciante" number={1} extra="Full Body → ABC → ABCD" />
 
           <Card
             title="Intermediário"
             number={2}
-            extra="ABC → ABCD → Upper / Lower" icon={""}          />
-          
+            extra="ABC → ABCD → Upper / Lower"
+          />
+
           <Card
             title="Avançado"
             number={3}
-            extra="Push / Pull / Legs • Personalizado" icon={""}          />
+            extra="Push / Pull / Legs • Personalizado"
+          />
         </div>
       </div>
 
@@ -131,13 +131,13 @@ export default function Home() {
             <img
               src="haltere - verde.png"
               alt="Dubble design"
-              className="w-5 h-5 rotate-45 mr-1 xl:w-8 xl:h-8 xl:mr-3"
+              className="w-4 h-4 mb-0.5 rotate-45 mr-1 xl:mr-3"
             />
-            <h4 className="uppercase text-lg text-white md:my-auto xl:text-2xl">
+            <h4 className="uppercase text-lg text-white md:my-auto ">
               Fitweek
             </h4>
           </div>
-          <p className="text-gray-300 mt-2">
+          <p className="text-gray-300 mt-2 text-sm">
             © 2025 FitWeek. Todos os direitos reservados.
           </p>
         </footer>

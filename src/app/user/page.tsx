@@ -77,7 +77,7 @@ export default function PageUser() {
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className="lucide lucide-arrow-left-icon lucide-arrow-left mr-2 hover:text-green-200"
+                className="lucide lucide-arrow-left-icon text-neutral-500 lucide-arrow-left mr-2 hover:text-green-200"
                 onClick={() => setStep(step - 1)}
               >
                 <path d="m12 19-7-7 7-7" />
@@ -85,7 +85,7 @@ export default function PageUser() {
               </svg>
             </div>
             <div>
-              <h1 className="uppercase text-2xl ml-12 mr-18">Sua medidas</h1>
+              <h1 className="uppercase text-2xl ml-12 mr-18 text-white">Sua medidas</h1>
             </div>
             <div content="w-1 mx-20"></div>
           </div>
@@ -172,7 +172,7 @@ export default function PageUser() {
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className="lucide lucide-arrow-left-icon lucide-arrow-left mr-2 hover:text-green-200"
+                className="lucide lucide-arrow-left-icon text-neutral-500 lucide-arrow-left mr-2 hover:text-green-200"
                 onClick={() => setStep(step - 1)}
               >
                 <path d="m12 19-7-7 7-7" />
@@ -180,7 +180,7 @@ export default function PageUser() {
               </svg>
             </div>
             <div>
-              <h1 className="uppercase text-2xl ml-12 mr-26">Seu nível</h1>
+              <h1 className="uppercase text-2xl ml-12 mr-26 text-white">Seu nível</h1>
             </div>
             <div content="w-1 mx-20"></div>
           </div>
@@ -191,6 +191,7 @@ export default function PageUser() {
             variant="small"
             title="Iniciante"
             subtitle="Menos de 6 meses"
+            style="text-white"
             extra="Treino Full Body"
             icon="atuacao.png"
             selected={selectedId === 1}
@@ -204,6 +205,7 @@ export default function PageUser() {
             variant="small"
             title="Intermediário"
             subtitle="6 meses a 2 anos de treino"
+            style="text-white"
             extra="Treino ABC / ABCD"
             icon="atuacao.png"
             selected={selectedId === 2}
@@ -213,11 +215,12 @@ export default function PageUser() {
 
               localStorage.setItem("nivel", "2")
             }}
-          />
+            />
           <Card
             variant="small"
             title="Avançado"
             subtitle="Mais de 2 anos de treino"
+            style="text-white"
             extra="Personalizado"
             icon="atuacao.png"
             selected={selectedId === 3}
@@ -259,7 +262,7 @@ export default function PageUser() {
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className="lucide lucide-arrow-left-icon lucide-arrow-left mr-2 hover:text-green-200"
+                className="lucide lucide-arrow-left-icon text-neutral-500 lucide-arrow-left mr-2 hover:text-green-200"
                 onClick={() => setStep(step - 1)}
               >
                 <path d="m12 19-7-7 7-7" />
@@ -267,7 +270,7 @@ export default function PageUser() {
               </svg>
             </div>
             <div>
-              <h1 className="uppercase text-2xl ml-10 mr-14">Tipo de Treino</h1>
+              <h1 className="uppercase text-2xl ml-10 mr-14 text-white">Tipo de Treino</h1>
             </div>
             <div content="w-1 mx-20"></div>
           </div>
@@ -281,7 +284,7 @@ export default function PageUser() {
               subtitle="Treino de força e hipertrofia no ginásio"
               icon="atuacao.png"
               selected={selectedTraining === 1}
-              style="cursor-pointer"
+              style="cursor-pointer text-white"
               onSelect={() => {
                 setSelectedTraining(1);
                 setError(null);
@@ -294,7 +297,7 @@ export default function PageUser() {
               subtitle="Treino de corrida e cardio"
               icon="atuacao.png"
               selected={selectedTraining === 2}
-              style="cursor-pointer"
+              style="cursor-pointer text-white"
               onSelect={() => {
                 setSelectedTraining(2);
                 setError(null);

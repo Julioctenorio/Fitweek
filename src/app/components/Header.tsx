@@ -43,11 +43,11 @@ export default function Header() {
   }, [hour]);
 
   return (
-    <div className="w-full bg-none mx-auto sm:w-140">
+    <div className="w-full bg-none mx-auto bg-neutral-950 sm:w-140">
       <div className="flex justify-between">
         <div>
           <p className="text-gray-400">{greeting}</p>
-          <h1 className="text-3xl mb-3">{username}</h1>
+          <h1 className="text-3xl mb-3 text-white">{username}</h1>
         </div>
 
         <div className="flex items-center justify-center mx-2">
@@ -57,7 +57,7 @@ export default function Header() {
               alt="icon orange flame"
               className="w-5 h-5 mr-1"
             />
-            <p className="font-light">0 dias</p>
+            <p className="font-light text-white">0 dias</p>
           </div>
 
           <button

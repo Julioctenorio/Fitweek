@@ -107,7 +107,7 @@ export function EditUserDataModal({ isOpen, onClose }: EditUserDataModalProps) {
                     weight: e.target.value ? Number(e.target.value) : "",
                   })
                 }
-                className="w-full rounded-lg bg-neutral-700 px-4 py-3 pr-12 text-white focus:outline-none focus:ring-2 focus:ring-green-500"
+                className="w-full rounded-lg bg-neutral-700 px-4 py-3 pr-12 text-white focus:outline-none focus:ring-2 focus:ring-green-500 container-snap no-spinners"
               />
               <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400">
                 kg
@@ -134,7 +134,7 @@ export function EditUserDataModal({ isOpen, onClose }: EditUserDataModalProps) {
                     height: e.target.value ? Number(e.target.value) : "",
                   })
                 }
-                className="w-full rounded-lg bg-neutral-700 px-4 py-3 pr-12 text-white focus:outline-none focus:ring-2 focus:ring-green-500"
+                className="w-full rounded-lg bg-neutral-700 px-4 py-3 pr-12 text-white focus:outline-none focus:ring-2 focus:ring-green-500 container-snap no-spinners"
               />
               <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400">
                 cm

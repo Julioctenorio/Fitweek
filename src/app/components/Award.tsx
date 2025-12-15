@@ -19,61 +19,61 @@ export default function Awards() {
           <div className="w-10 h-10 border rounded-full flex items-center justify-center bg-green-400 ">
             <Target />
           </div>
-          <p className="text-sm p-2">Primeiro Passo</p>
+          <p className="text-sm p-2 text-neutral-300">Primeiro Passo</p>
         </div>
         <div className="flex flex-col items-center">
           <div className="w-10 h-10 border rounded-full flex items-center justify-center bg-neutral-700 ">
             <BicepsFlexed />
           </div>
-          <p className="text-sm p-2">Consistente</p>
+          <p className="text-sm p-2 text-neutral-300">Consistente</p>
         </div>
         <div className="flex flex-col items-center">
           <div className="w-10 h-10 border rounded-full flex items-center justify-center bg-neutral-700 ">
             <Dumbbell />
           </div>
-          <p className="text-sm p-2">Dedicado</p>
+          <p className="text-sm p-2 text-neutral-300">Dedicado</p>
         </div>
         <div className="flex flex-col items-center">
           <div className="w-10 h-10 border rounded-full flex items-center justify-center bg-neutral-700 ">
             <Bot />
           </div>
-          <p className="text-sm p-2">Máquina</p>
+          <p className="text-sm p-2 text-neutral-300">Máquina</p>
         </div>
         <div className="flex flex-col items-center">
           <div className="w-10 h-10 border rounded-full flex items-center justify-center bg-neutral-700 ">
             <Flame />
           </div>
-          <p className="text-sm p-2">Em Chamas</p>
+          <p className="text-sm p-2 text-neutral-300">Em Chamas</p>
         </div>
         <div className="flex flex-col items-center">
           <div className="w-10 h-10 border rounded-full flex items-center justify-center bg-neutral-700 ">
             <Star />
           </div>
-          <p className="text-sm p-2">Semana Perfeita</p>
+          <p className="text-sm p-2 text-neutral-300">Semana Perfeita</p>
         </div>
         <div className="flex flex-col items-center">
           <div className="w-10 h-10 border rounded-full flex items-center justify-center bg-neutral-700 ">
             <Rocket />
           </div>
-          <p className="text-sm p-2">Imparável</p>
+          <p className="text-sm p-2 text-neutral-300">Imparável</p>
         </div>
         <div className="flex flex-col items-center">
           <div className="w-10 h-10 border rounded-full flex items-center justify-center bg-neutral-700 ">
             <Crown />
           </div>
-          <p className="text-sm p-2">Lendário</p>
+          <p className="text-sm p-2 text-neutral-300">Lendário</p>
         </div>
         <div className="flex flex-col items-center">
           <div className="w-10 h-10 border rounded-full flex items-center justify-center bg-neutral-700 ">
             <Gem />
           </div>
-          <p className="text-sm p-2">Colecionador</p>
+          <p className="text-sm p-2 text-neutral-300">Colecionador</p>
         </div>
         <div className="flex flex-col items-center">
           <div className="w-10 h-10 border rounded-full flex items-center justify-center bg-neutral-700 ">
             <Sparkles />
           </div>
-          <p className="text-sm p-2">Elite</p>
+          <p className="text-sm p-2 text-neutral-300">Elite</p>
         </div>
       </div>
     </>

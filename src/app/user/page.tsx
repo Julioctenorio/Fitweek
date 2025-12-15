@@ -197,6 +197,7 @@ export default function PageUser() {
             onSelect={() => {
               setSelectedId(1);
               setError(null);
+              localStorage.setItem("nivel", "1")
             }}
           />
           <Card
@@ -209,6 +210,8 @@ export default function PageUser() {
             onSelect={() => {
               setSelectedId(2);
               setError(null);
+
+              localStorage.setItem("nivel", "2")
             }}
           />
           <Card
@@ -221,6 +224,7 @@ export default function PageUser() {
             onSelect={() => {
               setSelectedId(3);
               setError(null);
+              localStorage.setItem("nivel", "3")
             }}
           />
 
@@ -277,10 +281,11 @@ export default function PageUser() {
               subtitle="Treino de força e hipertrofia no ginásio"
               icon="atuacao.png"
               selected={selectedTraining === 1}
+              style="cursor-pointer"
               onSelect={() => {
                 setSelectedTraining(1);
                 setError(null);
-                localStorage.setItem("selectedTraining", "1")
+                localStorage.setItem("training", "1")
               }}
               />
             <Card
@@ -289,10 +294,11 @@ export default function PageUser() {
               subtitle="Treino de corrida e cardio"
               icon="atuacao.png"
               selected={selectedTraining === 2}
+              style="cursor-pointer"
               onSelect={() => {
                 setSelectedTraining(2);
                 setError(null);
-                localStorage.setItem("selectedTraining", "2")
+                localStorage.setItem("training", "2")
               }}
             />
 
@@ -308,7 +314,6 @@ export default function PageUser() {
                     return;
                   }
                   setError(null);
-                  // handleNext();
                   router.push("/app");
                 }}
               />

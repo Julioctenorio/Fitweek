@@ -12,7 +12,7 @@ export default function InputText(props: InputTextProps) {
 
   return (
     <>
-      <label htmlFor={id} className="relative w-80 h-15 mb-4">
+      <label htmlFor={id} className="relative w-80 h-15 mb-4"> 
         <input
           type={type}
           id={id}
@@ -21,6 +21,7 @@ export default function InputText(props: InputTextProps) {
           value={value}
           onChange={onChange}
           required={required}
+          autoComplete="off"
           {...rest}
         />
 

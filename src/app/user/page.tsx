@@ -5,17 +5,14 @@ import Button from "../components/Button";
 import InputText from "../components/InputText";
 import Card from "../components/Card";
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 
 export default function PageUser() {
-  const router = useRouter();
   const [step, setStep] = useState(1);
   const [username, setUsername] = useState("");
   const [weight, setWeight] = useState("");
   const [height, setHeight] = useState("");
   const [imc, setIMC] = useState(0);
   const [selectedId, setSelectedId] = useState<number | null>(null);
-  const [selectedTraining, setSelectedTraining] = useState<number | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   const handleNext = () => {
@@ -246,81 +243,6 @@ export default function PageUser() {
                 handleNext();
               }}
             />
-          </div>
-        </div>
-      ) : step === 4 ? (
-        <div className="w-full h-dvh flex flex-col bg-[#151515] mx-auto items-center text-center justify-center gap-3">
-          <div className="flex justify-around">
-            <div>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="lucide lucide-arrow-left-icon text-neutral-500 lucide-arrow-left mr-2 hover:text-green-200"
-                onClick={() => setStep(step - 1)}
-              >
-                <path d="m12 19-7-7 7-7" />
-                <path d="M19 12H5" />
-              </svg>
-            </div>
-            <div>
-              <h1 className="uppercase text-2xl ml-10 mr-14 text-white">Tipo de Treino</h1>
-            </div>
-            <div content="w-1 mx-20"></div>
-          </div>
-          <p className="mx-auto mb-8 text-gray-400">
-            O que você quer participar
-          </p>
-          <div className="flex flex-col gap-3">
-            <Card
-              variant="small"
-              title="Musculação"
-              subtitle="Treino de força e hipertrofia no ginásio"
-              icon="atuacao.png"
-              selected={selectedTraining === 1}
-              style="cursor-pointer text-white"
-              onSelect={() => {
-                setSelectedTraining(1);
-                setError(null);
-                localStorage.setItem("training", "1")
-              }}
-              />
-            <Card
-              variant="small"
-              title="Corrida"
-              subtitle="Treino de corrida e cardio"
-              icon="atuacao.png"
-              selected={selectedTraining === 2}
-              style="cursor-pointer text-white"
-              onSelect={() => {
-                setSelectedTraining(2);
-                setError(null);
-                localStorage.setItem("training", "2")
-              }}
-            />
-
-            {error && <p className="text-red-400 mt-4">{error}</p>}
-
-            <div className="">
-              <Button
-                text={"Continuar"}
-                width="w-80"
-                onClick={() => {
-                  if (selectedId == null) {
-                    setError("Escolha um nível antes de continuar");
-                    return;
-                  }
-                  setError(null);
-                  router.push("/app");
-                }}
-              />
-            </div>
           </div>
         </div>
       ) : null}

@@ -116,12 +116,23 @@ export default function Header() {
           className={`w-full h-8 m-1 py-0.5 rounded-md font-medium cursor-pointer text-center transition-colors ${
             selectedOption === 1
               ? "bg-green-400 text-black"
-              : "bg-black text-white opacity-80 hover:opacity-100"
+              : "text-white opacity-80 hover:opacity-100"
           }`}
           onClick={() => setSelectedOption(1)}
         >
           {trainingText}
         </button>
+
+        {/* <button
+          className={`w-full h-8 m-1 py-0.5 rounded-md font-medium cursor-pointer text-center transition-colors ${
+            selectedOption === 3
+              ? "bg-green-400 text-black"
+              : "text-neutral-400 hover:text-neutral-300"
+          }`}
+          onClick={() => setSelectedOption(3)}
+        >
+          Corrida
+        </button> */}
 
         <button
           className={`w-full h-8 m-1 py-0.5 rounded-md font-medium cursor-pointer text-center transition-colors ${

@@ -5,8 +5,10 @@ import Button from "../components/Button";
 import InputText from "../components/InputText";
 import Card from "../components/Card";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function PageUser() {
+  const router = useRouter();
   const [step, setStep] = useState(1);
   const [username, setUsername] = useState("");
   const [weight, setWeight] = useState("");
@@ -232,7 +234,7 @@ export default function PageUser() {
 
           <div className="">
             <Button
-              text={"Continuar"}
+              text={"Ir para App"}
               width="w-80"
               onClick={() => {
                 if (selectedId == null) {
@@ -240,7 +242,7 @@ export default function PageUser() {
                   return;
                 }
                 setError(null);
-                handleNext();
+                router.push("/app");
               }}
             />
           </div>

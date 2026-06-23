@@ -1,0 +1,3 @@
+- [ ] Criar classe utilitária `bg-glow` mapeando `--background-image-glow` no `src/app/globals.css`.
+- [ ] Corrigir import do `globals.css` no `src/app/app/layout.tsx` (caminho correto).
+- [ ] Rebuild do projeto para validar.

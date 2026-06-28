@@ -5,8 +5,8 @@ import { ArrowRight } from "lucide-react";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#0a0a0a] bg-glow bg-fixed mt-0 pt-1">
-      <header className="mb-18">
+    <main className="min-h-screen bg-[#0a0a0a] bg-glow bg-local mt-0 pt-1 md:bg-hero md:bg-contain md:bg-top md:bg-no-repeat">
+      <header className="mb-18 ">
         <Header />
       </header>
       <section className="flex flex-col gap-4 m-5">
@@ -15,12 +15,12 @@ export default function Home() {
             ✨ A revolução do fitness digital
           </h3>
 
-          <section className="flex flex-col gap-6">
-            <h1 className="text-white text-5xl font-bold">
+          <section className="flex flex-col gap-6 md:flex">
+            <h1 className="flex flex-col text-white text-5xl font-bold md:text-7xl">
               Ultrapasse seus{" "}
-              <span className="text-[#DFFF00]">limites reais.</span>
+              <span className="text-[#DFFF00] md:italic">limites reais.</span>
             </h1>
-            <p className="text-gray-300 text-lg">
+            <p className="max-w-xl flex flex-col text-gray-300 text-lg">
               Uma experiência premium de treino, nutrição e acompanhamento de
               performance em uma única plataforma
             </p>
@@ -29,7 +29,7 @@ export default function Home() {
           <Button
             variant={"outline"}
             size={"lg"}
-            className="w-full bg-[#DFFF00] py-6 px-2 mt-5 rounded-2xl border-none hover:bg-[#DFFF00]/80"
+            className="w-full bg-[#DFFF00] py-6 px-2 mt-5 rounded-2xl border-none hover:bg-[#DFFF00]/80 md:w-48"
           >
             Criar Conta Grátis
             <ArrowRight />

@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function Header() {
   return (
-    <header className="flex items-center justify-between px-4 py-2 m-4 rounded-4xl bg-black/50">
+    <header className="flex items-center justify-between px-4 py-2 m-4 rounded-4xl bg-black/50 md:w-full md:m-0 md:rounded-none md:mt-0 md:px-5">
       <section className="flex items-center gap-2">
         <Image src="/logo2.png" alt="Logo" width={33} height={33}></Image>
         <h1 className="font-bold text-white">FIT<span className="text-[#DFFF00]">WEEK</span></h1>
